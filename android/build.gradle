@@ -1,0 +1,57 @@
+apply plugin: 'com.alipay.apollo.optimize'// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    ext.mpaas_artifact = "mpaas-baseline"
+    ext.mpaas_baseline = "10.1.68-37"
+    ext {
+        compileSdkVersion = 30
+        buildToolsVersion = "30.0.2"
+        minSdkVersion = 24
+        targetSdkVersion = 29
+        ndkVersion = "21.4.7075529"
+    }
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            url 'http://mvn.cloud.alipay.com/nexus/content/repositories/releases/'
+            name 'alipay'
+            credentials {
+                username 'mvn_read_ws'
+                password 'mrk8929'
+            }
+        }
+    }
+    dependencies {
+        classpath("com.android.tools.build:gradle:4.2.2")
+        classpath 'com.android.boost.easyconfig:easyconfig:2.5.0'
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
+        mavenLocal()
+        maven {
+            // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
+            url("$rootDir/../node_modules/react-native/android")
+        }
+        maven {
+            // Android JSC is installed from npm
+            url("$rootDir/../node_modules/jsc-android/dist")
+        }
+
+        google()
+        maven { url 'https://www.jitpack.io' }
+        maven {
+            url 'http://mvn.cloud.alipay.com/nexus/content/repositories/releases/'
+            name 'alipay'
+            credentials {
+                username 'mvn_read_ws'
+                password 'mrk8929'
+            }
+        }
+    }
+}

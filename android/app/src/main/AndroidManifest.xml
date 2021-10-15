@@ -1,0 +1,34 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  package="cloud.suntree.ems">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+      android:name="cloud.suntree.ems.MainApplication"
+      android:label="@string/app_name"
+      android:icon="@mipmap/ic_launcher"
+      android:roundIcon="@mipmap/ic_launcher_round"
+      android:allowBackup="false"
+      android:theme="@style/AppTheme">
+      <activity
+        android:name="cloud.suntree.ems.MainActivity"
+        android:label="@string/app_name"
+        android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
+        android:launchMode="singleTask"
+        android:windowSoftInputMode="adjustResize">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+      </activity>
+    </application>
+
+
+    <meta-data
+        android:name="nebula.android.meta.enable"
+        android:value="true" />
+    <!--UC开发者Key-->
+    <meta-data android:name="UCSDKAppKey"
+
+        android:value="SgxAVHdhOt9mWF0vud7fuBPdiEaKh59Gru/Yo43lm17woLw3RrE2ZmXYXtdl0U4d84RbK45x+1/zJAvoYk3i1Q=="/>
+</manifest>
